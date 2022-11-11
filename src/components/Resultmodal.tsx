@@ -13,10 +13,11 @@ import { modalStyle } from 'styles/modal';
 import CloseIcon from '@mui/icons-material/Close';
 import styled from 'styled-components';
 import Flex from './UI/Flex';
+import { Result } from 'interface/result';
 
 interface Props {
     open: boolean;
-    closeModal: any;
+    closeModal: (bool: boolean) => void;
 }
 
 const CloseWrapper = styled.div`
@@ -48,7 +49,7 @@ const ResultModal = ({ open, closeModal }: Props) => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {results.map((row: any, i: number) => (
+                                {results.map((row: Result, i: number) => (
                                     <TableRow key={i}>
                                         <TableCell component="th" scope="row">
                                             {row.name}

@@ -6,7 +6,7 @@ import Keyboard from 'components/Keyboard';
 import ResultModal from 'components/Resultmodal';
 import Button from 'components/UI/Button';
 import Flex from 'components/UI/Flex';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { KeyboardEvent, useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { modalStyle } from 'styles/modal';
@@ -50,11 +50,10 @@ const GamePage = () => {
     };
 
     const closeResultModal = (bool: boolean) => {
-        console.log(bool);
         setOpenResultModal(bool);
     };
 
-    const keyCounter = (e: any) => {
+    const keyCounter = (e: KeyboardEvent<HTMLDivElement>) => {
         if (!winState) {
             clickKeyHandler({ key: e.key.toUpperCase(), active: false });
         }
@@ -62,7 +61,7 @@ const GamePage = () => {
 
     useEffect(() => {
         wrapperDiv.current.focus();
-    }, []);
+    }, [clickKeyHandler]);
 
     return (
         <GameWrapper

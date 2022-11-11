@@ -3,7 +3,6 @@ import { KeyboardInterface } from 'interface/keyboard';
 import { createContext, useState } from 'react';
 import words from 'assets/words/words.json';
 import { keyboard } from 'assets/keyboard';
-import { useEffect } from 'react';
 
 const AppContext = createContext<ProviderTypes>({
     keyboardState: [],
@@ -19,7 +18,7 @@ const AppContext = createContext<ProviderTypes>({
     checkWin: () => [],
 });
 interface ProviderTypes {
-    keyboardState: any[];
+    keyboardState: KeyboardInterface[];
     selectedWord: string[];
     triedLetters: string[];
     errorCounter: number;
@@ -37,7 +36,7 @@ interface Props {
 }
 
 export function AppProvider({ children }: Props) {
-    const [keyboardState, setKeyBoardState] = useState<any>({});
+    const [keyboardState, setKeyBoardState] = useState<KeyboardInterface[]>([]);
     const [difficulty, setDifficulty] = useState('Easy');
     const [selectedWord, setSelectedWord] = useState<string[]>([]);
     const [triedLetters, setTriedLetters] = useState<string[]>([]);
