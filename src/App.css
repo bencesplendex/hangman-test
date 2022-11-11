@@ -1,0 +1,17 @@
+
+body {
+  /* COLORS */
+  --black: #000;
+  --grey: #c1c1c1;
+  --button: #c6e2e9;
+  --error: #ff0000;
+  --border: #a7bed3;
+
+  /* BORDER-RADIUS */
+  --radius: 6px;
+}
+
+
+*{
+  box-sizing: border-box;
+}
